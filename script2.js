@@ -8,12 +8,13 @@
 // 6. git add mian.css (добавляем новый созданный файл для контроля гитом)
 // 7. git commit -a -m"first comit"  (создаём первую контрльную точку)
 // 8. git add -A (сохоаняем сделанне изменения в файлах)
-// 9. git comit -a -m"second comit"  (создаём вторую контрльную точку с изменениями в файлах)
+// 9. git commit -a -m"second comit"  (создаём вторую контрльную точку с изменениями в файлах)
 // 10. git log (выводит все commit)
 //============== gitHub =====================================
 // 11. создаём репозиторий не gitHub (project)
 // 12. git remote add origin https://github.com/Alexander3891/project.git
 // 13. git push -u origin main (master)
+//  git push --set-upstream origin master - эта работает
 // 14. теперть в репозитории появяться все файла с VS code
 // 15. git push (после очередного изменения и комита отправляем обновлённые файлы на удалённый репозиторий)
 
