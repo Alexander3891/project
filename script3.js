@@ -16,6 +16,6 @@ let a = prompt("Один из последних просмотренных фи
     d = prompt("На сколько оцените его?");
     personaMovieDB.movies[a] = b;
     personaMovieDB.movies[c] = d;
-console.log(personaMovieDB);
-console.log(personaMovieDB.movies);
+// console.log(personaMovieDB);
+// console.log(personaMovieDB.movies);
 
