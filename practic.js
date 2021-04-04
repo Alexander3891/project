@@ -20,29 +20,28 @@ const personaMovieDB = {
 // console.log(personaMovieDB.movies);
 
 //1,2
-let a;
-let b;
-for (let i = 0; i < 1; i++) {
-    a = prompt("Один из последних просмотренных фильмов?");
-    b = +prompt("На сколько оцените его?");
+// let a;
+// let b;
+// for (let i = 0; i < 1; i++) {
+//     a = prompt("Один из последних просмотренных фильмов?");
+//     b = +prompt("На сколько оцените его?");
      
-    if (a != null && b != null && a != '' && b != '' && a.length < 50 && b.length < 11) {
-        personaMovieDB.movies[a] = b;
-        console.log(personaMovieDB);
-    } else {
-        alert('Ошибка');
-        i--;
+//     if (a != null && b != null && a != '' && b != '' && a.length < 50 && b.length > 11) {
+//         personaMovieDB.movies[a] = b;
+//         console.log(personaMovieDB);
+//     } else {
+//         alert('Ошибка');
+//         i--;
          
-    }
-}
-//3
-if (personaMovieDB.count <= 10) {
-    alert('Просмотренно довольно мало фильмов');
-} else if (personaMovieDB.count <= 30) {
-    alert('Вы класический зритель');
-} else if(personaMovieDB.count > 30){
-    alert('Вы киноман');
-}
+//     }
+// }
+// //3
+// if (personaMovieDB.count <= 10) {
+//     alert('Просмотренно довольно мало фильмов');
+// } else if (personaMovieDB.count <= 30) {
+//     alert('Вы класический зритель');
+// } else if(personaMovieDB.count > 30){
+//     alert('Вы киноман');
+// }
 
 
-// ========== function ====================
