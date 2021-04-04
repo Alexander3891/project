@@ -35,8 +35,6 @@ for (let i = 0; i < 1; i++) {
          
     }
 }
-     
-     
 //3
 if (personaMovieDB.count <= 10) {
     alert('Просмотренно довольно мало фильмов');
@@ -45,3 +43,6 @@ if (personaMovieDB.count <= 10) {
 } else if(personaMovieDB.count > 30){
     alert('Вы киноман');
 }
+
+
+// ========== function ====================

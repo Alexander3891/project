@@ -1,6 +1,6 @@
 "use strict";
 // ============== УСТАНОВКА GIT ===========================
-// 1. git init
+// 1. git init  ввести если такое сообщение -  fatal: not a git repository (or any of the parent directories): .git
 // 2. git config --global user.name "Alex"
 // 3. git config --global user.email sanichen350@gmail.com
 // 4. git status
