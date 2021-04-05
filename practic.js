@@ -10,6 +10,23 @@ const personaMovieDB = {
     privat: false
 };
 
+// function showMyDB() {
+// if(personaMovieDB.privat == false){
+//  console.log(personaMovieDB);
+// }
+// }
+// showMyDB();
+function writeYourGenres() {
+for(let i = 1; i < 4; i++){
+  let a = prompt(`Ваш любимый жанр под номером ${i}`);
+    personaMovieDB.genres[i] = a;
+
+
+}    
+}
+writeYourGenres();
+console.log(personaMovieDB);
+
 // let a = prompt("Один из последних просмотренных фильмов?"),
 //     b = prompt("На сколько оцените его?");
 //     c = prompt("Один из последних просмотренных фильмов?"),
