@@ -118,7 +118,40 @@ console.log('1');
     return a+b;
 };
 
-  
+//========== number , string ===================
+
+//=======string=============
+const str = "tesT";
+const err = [1,2,3];
+console.log(str.length);
+console.log(err.length);
+
+console.log(str.toUpperCase()); // big
+console.log(str.toLowerCase()); // little
+
+let fruit = "Some fruit";
+console.log(fruit.indexOf("fruit")); // place number 5
+
+const logg = "Hello world";
+console.log(logg.slice(6,11)); // start srtring, end string+1
+console.log(logg.slice(6)); //   with start string to end string  
+console.log(logg.slice(-5), -1); // worl
+console.log(logg.substring(6,11)); // start srtring, end string+1 (without"-")
+console.log(logg.substr(6, 5)); //
+
+//============number============
+const numm = 12.2;
+console.log(Math.round(numm)); // 12
+const test = "12.2px";
+console.log(parseInt(test));// 12
+console.log(parseFloat(test));// 12.2
+
+
+
+
+
+
+       
 
 
 
