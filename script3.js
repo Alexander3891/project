@@ -75,73 +75,98 @@
 // }
 
 // ========== function ====================
-let num = 20;
+// let num = 20;
 
-function showFirstMessege (text) {
-    console.log(text);
-    // let num = 10;
-    console.log(num);
+// function showFirstMessege (text) {
+//     console.log(text);
+//     // let num = 10;
+//     console.log(num);
 
-}
-showFirstMessege ("Hello World");
-console.log(num);
+// }
+// showFirstMessege ("Hello World");
+// console.log(num);
 
-function calc (a,b){
-   let c = (a+b);
-  return c;
-}
+// function calc (a,b){
+//    let c = (a+b);
+//   return c;
+// }
 
 // console.log(calc(5,5));
 // console.log(calc(2,5));
 // console.log(calc(4,5));
 // console.log(calc(10,5));
 
-function ret() {
-    let num =50;
-    return num;
-}
+// function ret() {
+//     let num =50;
+//     return num;
+// }
 
-const anotherNum = ret();
-console.log (anotherNum);
+// const anotherNum = ret();
+// console.log (anotherNum);
 
-const logger = function(){
-  console.log("Hello");  
-};
-logger();
+// const logger = function(){
+//   console.log("Hello");  
+// };
+// logger();
 
 
-const cal = a => a+b;
-const calcc = (a,b) => a+b;
-const calccc = (a,b) => {return a+b};
-const call = (a,b) => {
-console.log('1');
-    return a+b;
-};
+// const cal = a => a+b;
+// const calcc = (a,b) => a+b;
+// const calccc = (a,b) => {return a+b};
+// const call = (a,b) => {
+// console.log('1');
+//     return a+b;
+// };
 
-//========== number , string ===================
+// //========== number , string ===================
 
-//=======string=============
-const str = "tesT";
-const err = [1,2,3];
-console.log(str.length);
-console.log(err.length);
+// //=======string=============
+// const str = "tesT";
+// const err = [1,2,3];
+// console.log(str.length);
+// console.log(err.length);
 
-console.log(str.toUpperCase()); // big
-console.log(str.toLowerCase()); // little
+// console.log(str.toUpperCase()); // big
+// console.log(str.toLowerCase()); // little
 
-let fruit = "Some fruit";
-console.log(fruit.indexOf("fruit")); // place number 5
+// let fruit = "Some fruit";
+// console.log(fruit.indexOf("fruit")); // place number 5
 
-const logg = "Hello world";
-console.log(logg.slice(6,11)); // start srtring, end string+1
-console.log(logg.slice(6)); //   with start string to end string  
-console.log(logg.slice(-5), -1); // worl
-console.log(logg.substring(6,11)); // start srtring, end string+1 (without"-")
-console.log(logg.substr(6, 5)); //
+// const logg = "Hello world";
+// console.log(logg.slice(6,11)); // start srtring, end string+1
+// console.log(logg.slice(6)); //   with start string to end string  
+// console.log(logg.slice(-5), -1); // worl
+// console.log(logg.substring(6,11)); // start srtring, end string+1 (without"-")
+// console.log(logg.substr(6, 5)); //
 
 //============number============
-const numm = 12.2;
-console.log(Math.round(numm)); // 12
-const test = "12.2px";
-console.log(parseInt(test));// 12
-console.log(parseFloat(test));// 12.2
+// const numm = 12.2;
+// console.log(Math.round(numm)); // 12
+// const test = "12.2px";
+// console.log(parseInt(test));// 12
+// console.log(parseFloat(test));// 12.2
+
+
+//================ callback=======================
+
+function first() {
+setTimeout(function(){
+  console.log(1);
+},500);  
+}
+function second(){
+console.log(2);  
+}
+
+// first();
+// second();
+
+function learnJS(lang,callback){
+console.log(`Я учу: ${lang}`);
+callback();
+}
+function done(){
+  console.log('Я прошёл этот курс');
+}
+
+learnJS('JavaScript', done);
