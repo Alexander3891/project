@@ -19,7 +19,7 @@ const personaMovieDB = {
 function rememberMyFilms() {
     let a;
     let b;
-    for (let i = 0; i < 310; i++) {
+    for (let i = 0; i < 3; i++) {
         a = prompt("Один из последних просмотренных фильмов?");
         b = prompt("На сколько оцените его?");
          
