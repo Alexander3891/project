@@ -172,23 +172,35 @@
 // learnJS('JavaScript', done);
 
 //=============== object =================
-const objectt = {
-    name: 'Alex',
-    width: 1000,
-    hight: 1000,
-    color: {
-        back: 'red',
-        bg: 'green'
-    },
-    makeTest: function () {
-        console.log("Hello");
-    }
+// const objectt = {
+//     name: 'Alex',
+//     width: 1000,
+//     hight: 1000,
+//     color: {
+//         back: 'red',
+//         bg: 'green'
+//     },
+//     makeTest: function () {
+//         console.log("Hello");
+//     }
 
-};
+// };
+
+
+// delete objectt.name;
 // console.log(objectt);
+// objectt.name = 'Vasa';
+// console.log(objectt);
+// objectt.color.bd = 'red';
+// console.log(objectt);
+// delete objectt.color.bg;
+// console.log(objectt);
+// objectt.color.bd = 'blue';
+// console.log(objectt);
+
 // console.log(objectt.color.bg);
 // console.log(Object.keys(objectt));
-objectt.makeTest();
+// objectt.makeTest();
 
 // for (let key in objectt) {
 //     if (typeof(objectt[key]) === 'object') {
@@ -202,3 +214,76 @@ objectt.makeTest();
 // const { back, bg } = objectt.color;
 // console.log(back, bg);
 // console.log(Object.keys(objectt).length); // massiv with kays
+
+//==================== массивы ======================
+
+const arr = [1, 2, 3, 4, 6, 8];
+//====== end ======
+// arr.pop(); // delete last element from massiv
+// console.log(arr);
+// arr.push(10); //  add last element in massiv
+// console.log(arr);
+//======start=======
+// arr.unshift(11) ; // add first element in massiv
+// console.log(arr);
+// arr.shift() ; // delete last element from massiv
+// console.log(arr);
+
+
+// for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i]);
+// }
+
+// for (let key of arr) {
+//     console.log(key);
+// }
+// console.log(arr.length - 1);
+
+// arr[99] = 100;
+// console.log(arr);
+//===============================================================
+// const aarr = [1, 2, 3, 4, 6, 8];
+
+// aarr.forEach(function (item,i,aarr) {
+//     console.log(`${i}: ${item} внутри массива ${aarr}`);
+// });
+//================================= 
+
+
+// const str = prompt("", "");
+// const products = str.split(", "); // string to massiv 
+// products.sort();
+// console.log(products);
+// console.log(products.join(';')); // massiv to string
+
+const aar = [11, 25, 10, 9, 6, 8];
+aar.sort(compareNum);
+console.log(aar);
+
+function compareNum(a, b) {
+    return a - b;
+}
+
+//================ псевдомассивы =================
+// это прасто струкрура упорядоченных элементов которые не содержит свойств массива
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
