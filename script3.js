@@ -149,24 +149,56 @@
 
 //================ callback=======================
 
-function first() {
-setTimeout(function(){
-  console.log(1);
-},500);  
-}
-function second(){
-console.log(2);  
-}
+// function first() {
+// setTimeout(function(){
+//   console.log(1);
+// },500);  
+// }
+// function second(){
+// console.log(2);  
+// }
 
-// first();
-// second();
+// // first();
+// // second();
 
-function learnJS(lang,callback){
-console.log(`Я учу: ${lang}`);
-callback();
-}
-function done(){
-  console.log('Я прошёл этот курс');
-}
+// function learnJS(lang,callback){
+// console.log(`Я учу: ${lang}`);
+// callback();
+// }
+// function done(){
+//   console.log('Я прошёл этот курс');
+// }
 
-learnJS('JavaScript', done);
+// learnJS('JavaScript', done);
+
+//=============== object =================
+const objectt = {
+    name: 'Alex',
+    width: 1000,
+    hight: 1000,
+    color: {
+        back: 'red',
+        bg: 'green'
+    },
+    makeTest: function () {
+        console.log("Hello");
+    }
+
+};
+// console.log(objectt);
+// console.log(objectt.color.bg);
+// console.log(Object.keys(objectt));
+objectt.makeTest();
+
+// for (let key in objectt) {
+//     if (typeof(objectt[key]) === 'object') {
+//         for (let i in objectt[key]) {
+//             console.log(`Ключ ${i} содержит свойства ${objectt[key][i]}`);
+//         }
+//         } else {
+//         console.log(`Ключ ${key} содержит свойства ${objectt[key]}`);
+//     }
+// }
+// const { back, bg } = objectt.color;
+// console.log(back, bg);
+// console.log(Object.keys(objectt).length); // massiv with kays
