@@ -1,24 +1,41 @@
 "use strict";
 
+let numberOfFilms;
+
 const personaMovieDB = {
     count: numberOfFilms,
     movies: {},
     actors: {},
     genres: [],
-    privat: false
+    privat: true,
+    toggleVisibleMyDB: function (hiden) {
+        if (!hiden) {
+            personaMovieDB.privat = true;
+        } else {
+            personaMovieDB.privat = false;
+        }
+    },
+    writeYourGenres: function () {
+        for (let i = 1; i < 4; i++) {
+            let ganre = prompt(`Ваш любимый жанр под номером ${i}`);
+            personaMovieDB.genres[i - 1] = ganre;
+            if (ganre == null) {
+                i--;
+            } else {
+                personaMovieDB.ganres.forEach((item, i)  => {
+                    console.log(`Любимый жанр ${i+1} - это ${item}`);
+                });
+            }
+        }
+    }
 };
+// personaMovieDB.toggleVisibleMyDB(personaMovieDB.privat);
+// console.log(personaMovieDB.privat);
+personaMovieDB.writeYourGenres();
+    
 
 
 
-
-
-
-
-
-
-
-
-// let numberOfFilms; 
 
 // function start() {
 //  numberOfFilms = +prompt("Сколько фильмов вы уже посмтрели?","");
