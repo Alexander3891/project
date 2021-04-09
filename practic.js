@@ -18,14 +18,16 @@ const personaMovieDB = {
     writeYourGenres: function () {
         for (let i = 1; i < 4; i++) {
             let ganre = prompt(`Ваш любимый жанр под номером ${i}`);
-            personaMovieDB.genres[i - 1] = ganre;
-            if (ganre == null) {
+            if (ganre === null && ganre === '') {
+                console.log("Заполните поле");
                 i--;
             } else {
-                personaMovieDB.ganres.forEach((item, i)  => {
-                    console.log(`Любимый жанр ${i+1} - это ${item}`);
-                });
+                personaMovieDB.genres[i - 1] = ganre;
+            
             }
+            personaMovieDB.genres.forEach (function(item, i) {
+                console.log(`Любимый жанр ${i+1} - это ${item}`);
+            });
         }
     }
 };
