@@ -257,22 +257,96 @@ const arr = [1, 2, 3, 4, 6, 8];
 // console.log(products.join(';')); // massiv to string
 
 const aar = [11, 25, 10, 9, 6, 8];
-aar.sort(compareNum);
-console.log(aar);
+// aar.sort(compareNum);
+// console.log(aar);
 
-function compareNum(a, b) {
-    return a - b;
-}
-
+// function compareNum(a, b) {
+//     return a - b;
+// }
+aar.reverse();
+// console.log(aar);
 //================ псевдомассивы =================
 // это прасто струкрура упорядоченных элементов которые не содержит свойств массива
 
+// ================== copy object ========================
+
+const obj = {
+    a: 5,
+    b: 10,
+    c: {
+        x: 50,
+        y: 100
+    }
+};
+
+const copy = obj; // link
+copy.a = 20;
+
+console.log(obj);
+console.log(copy);
+//===================
 
 
+function coppy(mainObj) {
+    let objCopy = {};
+    let key;
+    for (key in mainObj) {
+        objCopy[key] = mainObj[key];
+    }
+    return objCopy;
+}
+
+const objcopy =  coppy(obj);
+objcopy.a = 30; // it work
+// objcopy.c.x = 500; // it doesnt work
+console.log(objcopy);
+
+  //==================
+const add = {
+    d: 17,
+    i: 20
+};
+
+console.log(Object.assign(obj, add)); // add new object 
+
+const neww = {
+
+};
+console.log(Object.assign(neww, add)); // new object   
+
+const q = {
+    one: 1,
+    two: 2
+};
+
+const newq = { ...q };
+console.log(newq);
 
 
+// ================== copy masive ========================
+const oldArray = ['a', 'b', 'c'];
+const newArray = oldArray.slice(); // copyy masive
+console.log(oldArray);
+console.log(newArray);
+//================= ES8 (spred operator) ==============
+const video = ['yuotube', 'vimeo', 'rutube'],
+    blogs = ['wordpress', 'livejornal', 'blogger'],
+    internet = [...video, ...blogs, 'vk','facebook'];
+console.log(internet);
 
+function log(a, b, c) {
+        console.log(a),
+        console.log(b),
+        console.log(c);
+        
+}
 
+const num = [2, 5, 7];
+log(...num);
+
+const arr2 = ['a', 'b'];
+const newArr = [...arr2];
+console.log(newArr);
 
 
 
