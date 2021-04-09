@@ -350,6 +350,36 @@ console.log(newArr);
 
 
 
+//============== ООП =======================
+
+const soldier = {
+    health: 400,
+    armor: 100,
+    sayHello: function () {
+        console.log("Hello");
+    }
+};
+
+const jonh = {
+    health: 100
+};
+// ====old method======
+// jonh._proto_ = soldier;
+
+console.log(jonh.armor);
+console.log(jonh.sayHello);
+
+// =====new method=====
+// Object.setPrototypeOf(jonh,soldier)
+const jonh2 = Object.create(soldier);
+
+// console.log(jonh.armor);
+// jonh.sayHello();
+
+console.log(jonh2.armor);
+jonh2.sayHello();
+
+
 
 
 
