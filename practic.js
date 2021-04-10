@@ -52,7 +52,7 @@ const personaMovieDB = {
         }
     },
     writeYourGenres: function () {
-        // for (let i = 1; i < 3; i++) {
+        // for (let i = 1; i <= 3; i++) {
         //     let genre = prompt(`Ваш любимый жанр под номером ${i}`);
         //     if (genre == null || genre == '') {
         //         console.log("Заполните поле");
@@ -63,17 +63,19 @@ const personaMovieDB = {
         //     }
         //================================
         for (let i = 1; i < 2; i++) {
-            let genres = +prompt(`Введите выщи любимые жанры через запятую`).toLocaleLowerCase();
-            if (genres == null || genres == '') {
+            let genress = prompt(`Введите выщи любимые жанры через запятую`).toLocaleLowerCase();
+            if (genress == null || genress == '') {
                 console.log("Вы ввели некоректные данные");
                 i--;
             } else {
-                personaMovieDB.genres = ganres.split(', ');
-                personaMovieDB.genres.sort();
+                personaMovieDB.genres = genress.split(', ');
+                // personaMovieDB.genres.sort();
             }
         }
         personaMovieDB.genres.forEach(function (item, i) {
-            console.log(`Любимый жанр ${i + 1} - это ${item}`);
+            // console.log(`Любимый жанр ${i + 1} - это ${item}`);
+            console.log(`Любимые жанры - это ${item}`);
+
         });
     }
 };
@@ -83,7 +85,7 @@ const personaMovieDB = {
 // personaMovieDB.rememberMyFilms();
 // personaMovieDB.detectPersonaLevel();
 // personaMovieDB.toggleVisibleMyDB();
-// personaMovieDB.writeYourGenres();
+personaMovieDB.writeYourGenres();
 
 
 
