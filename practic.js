@@ -52,21 +52,32 @@ const personaMovieDB = {
         }
     },
     writeYourGenres: function () {
-        for (let i = 1; i < 3; i++) {
-            let ganre = prompt(`Ваш любимый жанр под номером ${i}`);
-            if (ganre == null || ganre == '') {
-                console.log("Заполните поле");
+        // for (let i = 1; i < 3; i++) {
+        //     let genre = prompt(`Ваш любимый жанр под номером ${i}`);
+        //     if (genre == null || genre == '') {
+        //         console.log("Заполните поле");
+        //         i--;
+        //     } else {
+        //         personaMovieDB.genres[i - 1] = genre;
+
+        //     }
+        //================================
+        for (let i = 1; i < 2; i++) {
+            let genres = +prompt(`Введите выщи любимые жанры через запятую`).toLocaleLowerCase();
+            if (genres == null || genres == '') {
+                console.log("Вы ввели некоректные данные");
                 i--;
             } else {
-                personaMovieDB.genres[i - 1] = ganre;
-
+                personaMovieDB.genres = ganres.split(', ');
+                personaMovieDB.genres.sort();
             }
-            personaMovieDB.genres.forEach(function (item, i) {
-                console.log(`Любимый жанр ${i + 1} - это ${item}`);
-            });
         }
+        personaMovieDB.genres.forEach(function (item, i) {
+            console.log(`Любимый жанр ${i + 1} - это ${item}`);
+        });
     }
 };
+
 // personaMovieDB.start();
 // console.log(personaMovieDB.count);
 // personaMovieDB.rememberMyFilms();
@@ -94,23 +105,23 @@ const personaMovieDB = {
 //     privat: false
 // };
 //======================================================================
-function rememberMyFilms() {
-    let a;
-    let b;
-    for (let i = 0; i < 3; i++) {
-        a = prompt("Один из последних просмотренных фильмов?");
-        b = prompt("На сколько оцените его?");
+// function rememberMyFilms() {
+//     let a;
+//     let b;
+//     for (let i = 0; i < 3; i++) {
+//         a = prompt("Один из последних просмотренных фильмов?");
+//         b = prompt("На сколько оцените его?");
 
-        if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-            personaMovieDB.movies[a] = b;
-            console.log(personaMovieDB);
-        } else {
-            alert('Ошибка');
-            i--;
+//         if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+//             personaMovieDB.movies[a] = b;
+//             console.log(personaMovieDB);
+//         } else {
+//             alert('Ошибка');
+//             i--;
 
-        }
-    }
-}
+//         }
+//     }
+// }
 // rememberMyFilms();
 //========================================================================
 // function detectPersonaLevel(){
