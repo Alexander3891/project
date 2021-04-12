@@ -50,7 +50,7 @@ btns[1].style.borderRadius = '100px';
 circle[1].style.backgroundColor = 'red';
 
 // изменене стилей нескольких элемента
-// for (let i = 0; i < hearts.length; i++) {
+// for (let i = 0; i <h1 hearts.length; i++) {
     // hearts[i].style.backgroundColor = 'blue';
 //  }
 
@@ -66,19 +66,36 @@ div.classList.add('black'); // добавление класса
  
 // ====== добавление элемента ============
 // document.body.append(div); // добавляем в конец body наш новый div 
-// wrapper.append(div); // добавляем в конец wrapper наш новый div 
+
+wrapper.append(div); // добавляем в конец wrapper наш новый div 
+// wrapper.appendChild(div); // старый метод
+
 // wrapper.prepend(div); // добавляем в начало wrapper наш новый div
 // hearts[1].before(div);
 // hearts[2].after(div);
+// wrapper.insertBefore(div,hearts[0]);// старый метод
 
 // ========= удаление элемента ============
 // circle[0].remove();
+// wrapper.removeChild(hearts[1]);// старый метд
 
 // ========== замена одного элемента другим ================
 // hearts[0].replaceWith(circle[1]);
-     
-// +++++++++++++++++++ УСТАРЕВШИЕ КОНСТРУКЦИИ ++++++++++++++++++++
- 
+// wrapper.replaceChild(circle[0], hearts[0]); // старый метод     
+
+
+// +++++++++++++++++++ Добавление текста или html тэга в элемент ++++++++++++++++++++
+ div.innerHTML = "Hello world";
+// div.innerHTML = "<h1>Hello world</h1>";
+
+// div.textContent = "Hello</h1>"; // только с текстом без html
+
+// div.insertAdjacentHTML('beforebegin', '<h2>Hello2</h2>'); //вставляет перед элементом
+// div.insertAdjacentHTML('afterbegin', '<h2>Hello2</h2>'); // вставляет в начало элемента
+// div.insertAdjacentHTML('beforeend', '<h2>Hello2</h2>'); // вставяем в конец элемента  
+div.insertAdjacentHTML('afterend', '<h2>Hello2</h2>'); // вставляем после элемента
+
+
 
     
 
