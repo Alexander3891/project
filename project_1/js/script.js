@@ -23,4 +23,16 @@ const movieDB = {
         "Скотт Пилигрим против..."
     ]
 };
+// 1) Удалить все рекламные блоки со страницы (правая часть сайта)
+
+const promoadv = document.querySelector('.promo__adv');
+const promo = promoadv.querySelectorAll('img');
+
+console.log(promoadv);
+console.log(promo);
+ promo[0].remove();
+ promo[1].remove();
+ promo[2].remove();
+
+// 2) Изменить жанр фильма, поменять "комедия" на "драма"
 
