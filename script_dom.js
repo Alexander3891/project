@@ -101,7 +101,8 @@ div.insertAdjacentHTML('afterend', '<h2>Hello2</h2>'); // вставляем п�
 // console.log(document.body.childNodes); //узлы которые являются детьми у body
 // console.log(document.body.firstChild); //узлы которые являются детьми у body
 // console.log(document.body.lastChild); //узлы которые являются детьми у body
-// console.log(document.body.lastElementChild); //узлы которые являются детьми у body
+// console.log(document.body.firstElementChild); //элементы которые являются детьми у body
+// console.log(document.body.lastElementChild); //элементы которые являются детьми у body
 
 
 // console.log(document.querySelecto r('#current').parentElement);// получаем класс первого родителя
