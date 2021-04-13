@@ -96,7 +96,7 @@ wrapper.append(div); // добавляем в конец wrapper наш новы
 div.insertAdjacentHTML('afterend', '<h2>Hello2</h2>'); // вставляем после элемента
 
 
-
+        
     
 
 

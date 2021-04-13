@@ -27,8 +27,8 @@ const movieDB = {
 
  const promoadv = document.querySelectorAll('.promo__adv img'),
        poster = document.querySelector('.promo__bg'), 
-       genre = poster.querySelector('.promo__genre');
- 
+       genre = poster.querySelector('.promo__genre'),
+       movielist = document.querySelector('.promo__interactive-list');
  
  promoadv.forEach(item => {
           item.remove();     
@@ -40,7 +40,28 @@ genre.textContent = 'драма';
 // 3) Изменить задний фон постера с фильмом на изображение "bg.jpg". Оно лежит в папке img.
 poster.style.backgroundImage = 'url("img/bg.jpg")';
 
+//4) Список фильмов на странице сформировать на основании данных из этого JS файла.
+//Отсортировать их по алфавиту 
+//5) Добавить нумерацию выведенных фильмов */
 
+// +++++++++ 1 method +++++++++++++
+// movieDB.movies.sort();
+// const interactiveList = document.querySelectorAll('.promo__interactive-list li');
+// interactiveList.forEach((item,i)  => {
+    // item.innerHTML =i+1 + ". "  + movieDB.movies[i];
+// });
+
+// +++++++++  method +++++++++++++
+// movielist.innerHTML = "";
+// movieDB.movies.forEach((film, i) => {
+    // movielist.innerHTML += `
+//    <li class="promo__interactive-item">${i+1} ${film}
+    //  <div class="delete"></div>
+//    </li>   
+    // `;
+// });
+    
+    
 
 
 
