@@ -51,7 +51,7 @@ poster.style.backgroundImage = 'url("img/bg.jpg")';
     // item.innerHTML =i+1 + ". "  + movieDB.movies[i];
 // });
 
-// +++++++++  method +++++++++++++
+// +++++++++ 2 method +++++++++++++
 // movielist.innerHTML = "";
 // movieDB.movies.forEach((film, i) => {
     // movielist.innerHTML += `
