@@ -96,7 +96,35 @@ wrapper.append(div); // добавляем в конец wrapper наш новы
 div.insertAdjacentHTML('afterend', '<h2>Hello2</h2>'); // вставляем после элемента
 
 
-        
+// console.log(document.head);
+// console.log(document.documentElement);
+// console.log(document.body.childNodes); //узлы которые являются детьми у body
+// console.log(document.body.firstChild); //узлы которые являются детьми у body
+// console.log(document.body.lastChild); //узлы которые являются детьми у body
+// console.log(document.body.lastElementChild); //узлы которые являются детьми у body
+
+
+// console.log(document.querySelecto r('#current').parentElement);// получаем класс первого родителя
+// console.log(document.querySelector('#current').parentNode.parentNode);// получаем класс второго родителя
+
+//<li data-current="3">3</li> вместо id можно устанавливать дата атрибуты
+// console.log(document.querySelector('[data-current="3"]'));// обращаемся по дата атрибуту 
+// console.log(document.querySelector('[data-current="3"]').nextSibling);// получаем следующую строку  (пробел)  
+// console.log(document.querySelector('[data-current="3"]').previousSibling);// получаем предыдущий строку  (пробел) 
+// console.log(document.querySelector('[data-current="3"]').nextElementSibling);// получаем следующий элемент li(пробел)  
+// console.log(document.querySelector('[data-current="3"]').previousElementSibling);// получаем следующий элемент li(пробел)  
+//======================================
+
+//получаем только элементы страницы без текста
+// for (let node of document.body.childNodes) { 
+//     if (node.nodeName == '#text') { 
+//         continue;
+//     }
+//     console.log(node);
+
+// }
+
+    
     
 
 
