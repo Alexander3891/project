@@ -52,7 +52,7 @@ const hello = function () {
 };
 
 btn.forEach((item, i) => {
-    item.addEventListener('click', hello, {once: true}); // первым выполняется вложенное событие
+    item.addEventListener('click', hello, {once: true}); // once: true - клик выполнится только один раз 
     
 });
 
