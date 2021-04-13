@@ -45,11 +45,11 @@ poster.style.backgroundImage = 'url("img/bg.jpg")';
 //5) Добавить нумерацию выведенных фильмов */
 
 // +++++++++ 1 method +++++++++++++
-// movieDB.movies.sort();
-// const interactiveList = document.querySelectorAll('.promo__interactive-list li');
-// interactiveList.forEach((item,i)  => {
-    // item.innerHTML =i+1 + ". "  + movieDB.movies[i];
-// });
+movieDB.movies.sort();
+const interactiveList = document.querySelectorAll('.promo__interactive-list li');
+interactiveList.forEach((item,i)  => {
+    item.innerHTML = i+1 + ". "  + movieDB.movies[i];
+});
 
 // +++++++++ 2 method +++++++++++++
 // movielist.innerHTML = "";
