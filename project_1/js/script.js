@@ -17,21 +17,21 @@ const movieDB = {
         poster = document.querySelector('.promo__bg'),
         genre = poster.querySelector('.promo__genre'),
         movielist = document.querySelector('.promo__interactive-list'),
-        addForm = document.querySelector('.form.add'),
-        addInput = document.querySelector('.adding__input'),
-        checkbox = addForm.querySelector('[type="checkbox"]');
+        addForm = document.querySelector('form.add'),
+        addInput = addForm.querySelector('.adding__input');
+        // checkbox = addForm.querySelector('[type="checkbox"]');
     
-    addForm.addEventListener('submit', (event) => {
+       addForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
         const newFilm = addInput.value; // получаем значение из формы
-        const favorite = checkbox.checked; // получаем значения чекед
+        // const favorite = checkbox.checked; // получаем значения чекед
 
         movieDB.movies.push(newFilm); // добавляем новый фильм в массив
         sortArr(movieDB.movies);
     
         createMovieList(movieDB.movies, movielist);
-        event.target.reset(); // сбрасываем форму
+        // event.target.reset(); // сбрасываем форму
 
     });
     //удаление картинок рекламы
