@@ -45,21 +45,21 @@ poster.style.backgroundImage = 'url("img/bg.jpg")';
 //5) Добавить нумерацию выведенных фильмов */
 
 // +++++++++ 1 method +++++++++++++
-movieDB.movies.sort();
-const interactiveList = document.querySelectorAll('.promo__interactive-list li');
-interactiveList.forEach((item,i)  => {
-    item.innerHTML = i+1 + ". "  + movieDB.movies[i];
-});
+// movieDB.movies.sort();
+// const interactiveList = document.querySelectorAll('.promo__interactive-list li');
+// interactiveList.forEach((item,i)  => {
+//     item.innerHTML = i+1 + ". "  + movieDB.movies[i];
+// });
 
 // +++++++++ 2 method +++++++++++++
-// movielist.innerHTML = "";
-// movieDB.movies.forEach((film, i) => {
-    // movielist.innerHTML += `
-//    <li class="promo__interactive-item">${i+1} ${film}
-    //  <div class="delete"></div>
-//    </li>   
-    // `;
-// });
+movielist.innerHTML = "";
+movieDB.movies.forEach((film, i) => {
+    movielist.innerHTML += `
+   <li class="promo__interactive-item">${i+1} ${film}
+     <div class="delete"></div>
+   </li>   
+    `;
+});
     
     
 
