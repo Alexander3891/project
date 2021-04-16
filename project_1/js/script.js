@@ -17,20 +17,24 @@ document.addEventListener('DOMContentLoaded', () => {
         genre = poster.querySelector('.promo__genre'),
         movielist = document.querySelector('.promo__interactive-list'),
         addForm = document.querySelector('form.add'),
-        addInput = addForm.querySelector('.adding__input');
+        addInput = addForm.querySelector('.adding__input'),
+        add = document.querySelector('.promo__genre'),
     // checkbox = addForm.querySelector('[type="checkbox"]');
+    d = add.innerHTML;
+    console.log(d);
+
+
 
     addForm.addEventListener('submit', (event) => {
         event.preventDefault(); // без перезагрузки страниці
 
         const newFilm = addInput.value; // получаем значение из формы
-        // const favorite = checkbox.checked; // получаем значения чекед
-
+            // const favorite = checkbox.checked; // получаем значения чекед
         movieDB.movies.push(newFilm); // добавляем новый фильм в массив
         sortArr(movieDB.movies);
 
         createMovieList(movieDB.movies, movielist); // выводим обновлённый список фильмов
-        // event.target.reset(); // сбрасываем форму
+        event.target.reset(); // сбрасываем форму
 
     });
 
