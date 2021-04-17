@@ -228,6 +228,11 @@ const arr = [1, 2, 3, 4, 6, 8];
 // console.log(arr);
 // arr.shift() ; // delete last element from massiv
 // console.log(arr);
+// arr.splise(1,1) ; // номер элемента с котрого нужно начать и второй это количество элементов которые нужно удалить
+
+// let arr = [1,2,3];
+// arr.splice(0, 1, 5, 6); // начиная с позиции 1, удалить 1 элемент
+// console.log( arr ); // осталось ["Я", "JavaScript"]
 
 
 // for (let i = 0; i < arr.length; i++) {

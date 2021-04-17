@@ -18,26 +18,34 @@ document.addEventListener('DOMContentLoaded', () => {
         movielist = document.querySelector('.promo__interactive-list'),
         addForm = document.querySelector('form.add'),
         addInput = addForm.querySelector('.adding__input'),
-        add = document.querySelector('.promo__genre'),
+        add = document.querySelector('.promo__genre').innerText;
     // checkbox = addForm.querySelector('[type="checkbox"]');
-    d = add.innerHTML;
-    console.log(d);
+    // d = add.innerHTML; // innerText
+    console.log(add);
 
 
 
     addForm.addEventListener('submit', (event) => {
         event.preventDefault(); // без перезагрузки страниці
 
-        const newFilm = addInput.value; // получаем значение из формы
+        let newFilm = addInput.value; // получаем значение из формы
             // const favorite = checkbox.checked; // получаем значения чекед
-        movieDB.movies.push(newFilm); // добавляем новый фильм в массив
-        sortArr(movieDB.movies);
+        if (newFilm) {
+            if (newFilm.length < 21) {
+                movieDB.movies.push(newFilm); // добавляем новый фильм в массив
+            } else {
+                newFilm = `${newFilm.slice(0, 10)}...`;
+                movieDB.movies.push(newFilm); // добавляем новый фильм в массив
+            }
+            sortArr(movieDB.movies);
+            createMovieList(movieDB.movies, movielist); // выводим обновлённый список фильмов
+        }
+            event.target.reset(); // сбрасываем форму
+     });
 
-        createMovieList(movieDB.movies, movielist); // выводим обновлённый список фильмов
-        event.target.reset(); // сбрасываем форму
 
-    });
-
+    
+    
     const deleteAdv = function (arr) {
         arr.forEach(item => {
             item.remove();
@@ -64,9 +72,18 @@ document.addEventListener('DOMContentLoaded', () => {
        </li>   
     `;
         });
+
+        document.querySelectorAll('.delete').forEach((btn, i) => {
+            btn.addEventListener('click', () => {
+                btn.parentElement.remove();
+                movieDB.movies.splice(i, 1);
+                 
+                createMovieList(films, parent);
+
+            });
+             
+        });
     }
-
-
 
     //удаление картинок рекламы
     deleteAdv(promoadv);
