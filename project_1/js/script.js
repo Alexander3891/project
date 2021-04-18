@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
         movielist = document.querySelector('.promo__interactive-list'),
         addForm = document.querySelector('form.add'),
         addInput = addForm.querySelector('.adding__input'),
-        add = document.querySelector('.promo__genre'),
+        add = document.querySelector('.promo__genre').innerHTML;
     // checkbox = addForm.querySelector('[type="checkbox"]');
-    d = add.innerHTML;
-    console.log(d);
+    // d = add.innerHTML;
+    console.log(add);
 
 
 
