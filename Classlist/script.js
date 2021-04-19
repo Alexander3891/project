@@ -19,7 +19,9 @@ btns[0].addEventListener('click', () => {
 //    }
       btns[1].classList.toggle('red');
 });
-
+      btns[2].addEventListener('click', () => {
+      btns[3].classList.toggle('chartreuse');
+});
 
 // устарелый
 console.log(btns[0].className);
@@ -27,10 +29,11 @@ console.log(btns[0].className);
 // ========= делегирование событий ==============
 // если элемент подходит под условие то на нём будет срабатывать та функция которую мы передали 
 wrapper.addEventListener('click', (event) => {
-    // if(event.target && event.target.classList.contains('blue')){
-    if(event.target && event.target.tagName=="BUTTON"){
-      console.log('Hello');
-    }
+    // if (event.target && event.target.classList.contains('blue')) {
+        if (event.target && event.target.tagName == "BUTTON") {
+            console.log('Hello');
+        }
+    // }
 });
 
 // при делегировании события переданна функция также будет срабатывать и на новом созданном элементе
