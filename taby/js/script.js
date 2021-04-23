@@ -50,11 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //=========================================================================================================
 
 
-    // const tabcontent = document.querySelectorAll('.tabcontent'),
-    //       tabheaderItem = document.querySelector('.tabheader__item'),
-    //       tabheaderItemAll = document.querySelectorAll('.tabheader__item');
-
-
+    // 
      function  hidenTabContent() {
         tabsContent.forEach(function(item) {
              item.classList.add('hide');
