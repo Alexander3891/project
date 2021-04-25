@@ -91,5 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
      });
 
+    tabs.forEach((item, i) => {
+                    
+        console.log(item);
+        console.log(i);
+    });
+            
+
 });
    
