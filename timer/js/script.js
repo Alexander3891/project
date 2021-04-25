@@ -119,6 +119,16 @@ document.addEventListener('DOMContentLoaded', () => {
             'seconds': seconds
         };
     }
+// для отображения дней и часов с нулём впереди
+    function getZero(num) {
+        if (num >= 0 && num < 10) {
+            return `0${num}`;
+        } else {
+            return num;
+        }
+    }
+
+
 
     // устанавливаем таймер на страницу
     function setClock(selector, endtime) {
@@ -128,16 +138,17 @@ document.addEventListener('DOMContentLoaded', () => {
             minutes = timer.querySelector('#minutes'),
             seconds = timer.querySelector('#seconds'),
             timeInterval = setInterval(updateClock, 1000);
+        updateClock(); // чтобы отсчёт начинался сразу 
 
 // обнавляет таймер каждую секунду
     function updateClock() {
         const t = getTimeRemaining(endtime); //  заисывается обьект с return
 
-        days.innerHTML = t.days;
-        hours.innerHTML = t.hours;
-        minutes.innerHTML = t.minutes;
-        seconds.innerHTML = t.seconds;
-
+        days.innerHTML = getZero(t.days);
+        hours.innerHTML = getZero(t.hours);
+        minutes.innerHTML = getZero(t.minutes);
+        seconds.innerHTML = getZero(t.seconds);
+ 
         if (t.total <= 0) {
             clearInterval(timeInterval);
         }
