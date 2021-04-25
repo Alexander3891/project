@@ -9,6 +9,13 @@
   width: 200px;
   height: 400px;
   background-color: blue;
+  text-align: center;
+
+  color: beige;
+
+}
+p {
+  margin-top: 150px;  
 }
 
 .wrapper {
