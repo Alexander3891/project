@@ -160,8 +160,50 @@ document.addEventListener('DOMContentLoaded', () => {
     
 //                        +++++++++++++++++++++ MODAL +++++++++++++++++++++++++
 
-    
-    
+    const modalTrigger = document.querySelectorAll('[data-modal]'),
+          modal = document.querySelector('.modal'), 
+          modalCloseBtn = document.querySelector('[data-close]');
+   
+          //при клике каждой кнопки (Связаться с нами) открывается модальное окно
+    modalTrigger.forEach(btn => {
+        btn.addEventListener('click', () => {
+            modal.classList.add('show');
+            modal.classList.remove('hide');
+            //    второй способ
+            // modal.classList.toggle('show');
+            // при открытии модального она запрещаем прокручивание основной страницы
+            document.body.style.overflow = 'hidden';
+        });
+    });
+       // функция закрытия модального окна
+    function closeModal() {
+        modal.classList.add('hide');
+        modal.classList.remove('show');
+       // второй способ
+        // modal.classList.toggle('show');
+
+// при закрытии модального она разрешаем прокручивание основной страницы
+        document.body.style.overflow ='';
+    }
+
+//при нажатии на крестик модальное окно закрывается
+    modalCloseBtn.addEventListener('click', closeModal);
+
+// закрытие модального окна при нажатии на подложку
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+// закрытие модального окна при нажатии на кнопку Esc
+    document.addEventListener('keydown', (event) => {
+        if (event.code === "Escape" && modal.classList.contains('show')) {
+            closeModal();
+        }
+    });
+
+
 });
    
 
