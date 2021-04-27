@@ -2,7 +2,7 @@
 'use strict';
 
 
-//                                               ++++++++++++++++++++++ TABS ++++++++++++++++++++++++++
+//              ++++++++++++++++++++++ TABS ++++++++++++++++++++++++++
 
 document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.tabheader__item'),
@@ -100,9 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(i);
     });
             
-//                                                      +++++++++++++++++++++ TIMER +++++++++++++++++++++++++
+//                        +++++++++++++++++++++ TIMER +++++++++++++++++++++++++
 
-    const deadline = '2021-04-26 ';
+    const deadline = '2021-05-26 ';
 // разница между deadline и текущим временем
     function getTimeRemaining(endtime) {
         const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -157,6 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
  
     setClock('.timer', deadline); 
+    
+//                        +++++++++++++++++++++ MODAL +++++++++++++++++++++++++
+
     
     
 });
