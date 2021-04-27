@@ -164,18 +164,26 @@ document.addEventListener('DOMContentLoaded', () => {
           modal = document.querySelector('.modal'), 
           modalCloseBtn = document.querySelector('[data-close]');
    
-          //при клике каждой кнопки (Связаться с нами) открывается модальное окно
-    modalTrigger.forEach(btn => {
-        btn.addEventListener('click', () => {
-            modal.classList.add('show');
-            modal.classList.remove('hide');
+// функция открытия модального окна
+    function openModal() {
+        modal.classList.add('show');
+        modal.classList.remove('hide');
             //    второй способ
             // modal.classList.toggle('show');
             // при открытии модального она запрещаем прокручивание основной страницы
-            document.body.style.overflow = 'hidden';
-        });
+        document.body.style.overflow = 'hidden';
+        // очистка таймера при открытии модального окна пользователем
+        clearInterval(modalTimerId);
+    } 
+
+    
+//при клике каждой кнопки (Связаться с нами) открывается модальное окно
+    modalTrigger.forEach(btn => {
+        btn.addEventListener('click', openModal);
     });
-       // функция закрытия модального окна
+
+     
+// функция закрытия модального окна
     function closeModal() {
         modal.classList.add('hide');
         modal.classList.remove('show');
@@ -202,8 +210,21 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     });
+//           +++++++++++++ MODAL (открывается через определнно время на страницк) +++++++++++++++++++++++++
 
+    const modalTimerId = setTimeout(openModal, 50000);
 
+//           +++++++++++++ MODAL (открывается когда пользователь долистал до конца страницы) ++++++++++++++
+
+    // определяем что пользователь долистал до конца страницы
+    function showModalByScrol() {
+        if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+            openModal();
+            // удаляем событие после первого показа модального окна
+            window.removeEventListener('scroll', showModalByScrol);
+        }
+    }
+    window.addEventListener('scroll', showModalByScrol);
 });
    
 
