@@ -227,9 +227,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', showModalByScrol);
 
 // ================= Классы для карточек ==================
-
+ 
 class MenuCart {
-    constructor(src, alt, title, descr, price, parentSelector) {
+    constructor(src, alt, title, descr, price, parentSelector, ...classes) {
         this.src = src;
         this.alt = alt;
         this.title = title;
@@ -238,6 +238,7 @@ class MenuCart {
         this.parent = document.querySelector(parentSelector);
         this.transfer = 27;
         this.changeToUAH();
+        this.classes = classes;
     }
 // конвертация в гривеу
     changeToUAH() {
@@ -246,8 +247,14 @@ class MenuCart {
 // вставляем html код с переменными на страницу
     render() {
         const element = document.createElement('div');
+        if (this.classes.length === 0) {
+            this.element = 'menu__item';
+            element.classList.add();
+        } else {
+        this.classes.forEach(className => element.classList.add(className));
+        }
+// подставляем все классы которые есть в div
         element.innerHTML = `
-               <div class="menu__item">
                     <img src=${this.src} alt=${this.alt}>
                     <h3 class="menu__item-subtitle">${this.title}</h3>
                     <div class="menu__item-descr">${this.descr}</div>
@@ -256,7 +263,6 @@ class MenuCart {
                         <div class="menu__item-cost">Цена:</div>
                         <div class="menu__item-total"><span>${this.price}</span> грн/день</div>
                     </div>
-                </div>
             `;
         this.parent.append(element);
     }
@@ -269,7 +275,9 @@ class MenuCart {
         'Меню "Фитнес"',
         'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
         9,
-       '.menu__field .container' 
+        '.menu__field .container',
+        // 'menu__item',
+        // 'big'
     ).render();
     
     new MenuCart(
@@ -278,7 +286,8 @@ class MenuCart {
         'Меню “Премиум”',
         'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
         11,
-       '.menu__field .container' 
+        '.menu__field .container',
+       'menu__item'
     ).render();
     new MenuCart(
         "img/tabs/post.jpg",
@@ -286,7 +295,8 @@ class MenuCart {
         'Меню "Постное"',
         'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
         15,
-       '.menu__field .container' 
+        '.menu__field .container',
+       'menu__item'
     ).render();
 
 
@@ -297,7 +307,8 @@ class MenuCart {
         'Меню "Фитнес"',
         'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
         9,
-       '.menu__field .container' 
+        '.menu__field .container',
+       'menu__item'
     ).render();
     
     new MenuCart(
@@ -306,7 +317,8 @@ class MenuCart {
         'Меню “Премиум”',
         'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
         11,
-       '.menu__field .container' 
+        '.menu__field .container',
+       'menu__item'
     ).render();
     new MenuCart(
         "img/tabs/post.jpg",
@@ -314,7 +326,8 @@ class MenuCart {
         'Меню "Постное"',
         'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
         15,
-       '.menu__field .container' 
+        '.menu__field .container',
+       'menu__item'
     ).render();
 
 });
