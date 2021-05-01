@@ -1,16 +1,16 @@
 'use strict';
 
-// const num = new Function(3);
-// console.log(num);
+const num = new Function(3);
+console.log(num);
 
-// function User(name, id) {
-//     this.name = name;
-//     this.id = id;
-//     this.human = true;
-//     this.hello = function () {
-//         console.log(`Hello ${this.name}`);
-//     };
-// }
+function User(name, id) {
+    this.name = name;
+    this.id = id;
+    this.human = true;
+    this.hello = function () {
+        console.log(`Hello ${this.name}`);
+    };
+}
 
 const ivan = new User('Ivan', 28);
 const alex = new User('Alex', 20);
@@ -49,24 +49,85 @@ const obj = {
     }
 
 };
-// obj.sum();
+obj.sum();
 
 // 3)========================
 
-function User(name, id) {
-    this.name = name;
-    this.id = id;
-    this.human = true;
-    }
+// function User(name, id) {
+//     this.name = name;
+//     this.id = id;
+//     this.human = true;
+//     }
 
-let ivann = new User('Ivann', 23);
+// let ivann = new User('Ivann', 23);
 
+// 4) ========================
+
+function sayName() {
+    console.log(this);
+    console.log(this.name);
+}
+
+const user = {
+    name: 'John'
+};
+// передаём в качестве this - user
+sayName.call(user);
+sayName.apply(user);
+
+function count(num) {
+    return this * num;
+}
+// 2 передатся вместо this в count
+const double = count.bind(2);
+console.log(double(3));
+console.log(double(13));
 
 
 //1) Обычная функция: this = windows, но если use strict - undefined
 //2) Контекст(this) у методов обьектов это сам обьект
 //3) this в конструкторах и классах это новый экземпляр обьекта
-//4)
+//4) Ручная привязка this: call, apply, bind
+
+//==================================================
+const btn = document.querySelector('button');
+// btn.addEventListener('click', function () {
+//     console.log(this);  // <button></button> ( как event.target)
+//     this.style.backgroundColor = 'red';
+// });
+// или
+btn.addEventListener('click',  (event) => {
+    event.target.style.backgroundColor = 'red';
+});
+//================================================
+// стрелочная функция всегда берёт контекст (this) у своего родителя
+const objj = {
+    num: 5,
+    sayNumber: function () {
+        const say = () => {
+            console.log(this);
+            console.log(this.num); // 5
+
+        };
+        say();
+    }
+};
+
+objj.sayNumber();
+
+// const doublee = (a) => {
+//     return a * 2;
+// };
+// или
+const doublee = (a) => a * 2;
+// или
+const doubleee = a => a * 2;
+// если два аргумента
+const doubleeee  = (a,b) => a*b * 2;
+
+
+
+
 
 
 
