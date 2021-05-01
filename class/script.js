@@ -21,5 +21,24 @@ console.log(long.calcArea());
 
 //===========================
 // Наледование классов
+// ColorRectangleWithText наследуется от Rectangl
+class ColorRectangleWithText extends Rectangle {
+    constructor(heihht, width, text, bgColor) {
+        super(heihht, width); // вызывает то что есть у родителя
+        this.text = text;
+        this.bgColor = bgColor;
+    }
+
+    showMyProps() {
+        console.log(`Текст: ${this.text}, цвет: ${this.bgColor}`);
+
+    }
+}
+
+const div = new ColorRectangleWithText(25, 10, 'Hello', 'red');
+
+
+div.showMyProps();
+console.log(div.calcArea());
 
 
