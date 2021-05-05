@@ -330,9 +330,65 @@ class MenuCart {
        'menu__item'
     ).render();
 
+// ================= ajax для формы ==================
+
+    const forms = document.querySelectorAll('form');
+    
+    const message = {
+        loading: 'Загрузка',
+        success: 'Спасибо! Скоро мы с вами свяжемся',
+        failure: 'Что-то пошло не так'
+    };
+
+    forms.forEach(item => {
+        postData(item);
+    });
+    
+    function postData(form) {
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+      
+            const statusMessege = document.createElement('div');
+            statusMessege.classList.add('status');
+            statusMessege.textContent = message.loading;
+            form.append(statusMessege);
+
+            const request = new XMLHttpRequest();
+            request.open('POST', 'server.php');
+             // для JSON файла
+            request.setRequestHeader('Content-type', 'application/json');
+            // получаем данные из формы
+            const formData = new FormData(form);
+//============================================
+         // дедаем из данных формы JSON файл 
+            const object = {};
+            formData.forEach(function (value, key) {
+                object[key] = value;
+            });
+            const json = JSON.stringify(object);
+            request.send(json);
+//===================================================
+            // request.send(formData);
+            
+            request.addEventListener('load', () => {
+                if (request.status === 200) {
+                    console.log(request.response);
+                    statusMessege.textContent = message.success;
+                    form.reset();
+                    setTimeout(() => {
+                        statusMessege.remove();
+                    }, 2000);
+                } else {
+                     statusMessege.textContent = message.failure;
+                }
+            });
+        });
+
+    }
+    
+
 });
 
-// ================= ajax для формы ==================
 
  
 
