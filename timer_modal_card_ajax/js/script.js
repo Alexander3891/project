@@ -1,4 +1,3 @@
-
 'use strict';
 
 
@@ -161,8 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
 //                        +++++++++++++++++++++ MODAL +++++++++++++++++++++++++
 
     const modalTrigger = document.querySelectorAll('[data-modal]'),
-          modal = document.querySelector('.modal'), 
-          modalCloseBtn = document.querySelector('[data-close]');
+        modal = document.querySelector('.modal');
+        //   modalCloseBtn = document.querySelector('[data-close]');
    
 // функция открытия модального окна
     function openModal() {
@@ -195,11 +194,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 //при нажатии на крестик модальное окно закрывается
-    modalCloseBtn.addEventListener('click', closeModal);
+    // modalCloseBtn.addEventListener('click', closeModal);
 
 // закрытие модального окна при нажатии на подложку
     modal.addEventListener('click', (event) => {
-        if (event.target === modal) {
+        if (event.target === modal || event.target.getAttribute('data-close') =='') {
             closeModal();
         }
     });
@@ -330,8 +329,107 @@ class MenuCart {
        'menu__item'
     ).render();
 
-});
+// ================= ajax для формы ==================
 
+    const forms = document.querySelectorAll('form');
+    
+    const message = {
+        loading: 'img/form/spinner.svg',
+        success: 'Спасибо! Скоро мы с вами свяжемся',
+        failure: 'Что-то пошло не так'
+    };
+
+    forms.forEach(item => {
+        postData(item);
+    });
+    
+    function postData(form) {
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+      // для надписи
+            // const statusMessege = document.createElement('div');
+            // statusMessege.classList.add('status');
+            // statusMessege.textContent = message.loading;
+            // form.append(statusMessege);
+
+      // для спинера
+            const statusMessege = document.createElement('img');
+            statusMessege.src = message.loading;
+            statusMessege.style.cssText = `
+            display:block;
+            margin: 0 auto;
+            `;
+            // form.append(statusMessege);
+            // ставим спинер под формой
+            form.insertAdjacentElement('afterend', statusMessege);
+
+            
+            const request = new XMLHttpRequest();
+            request.open('POST', 'server.php');
+             // для JSON файла (для formData не нужно)
+            request.setRequestHeader('Content-type', 'application/json');
+            // получаем данные из формы
+            const formData = new FormData(form);
+//============================================
+         // дедаем из данных формы JSON файл 
+            const object = {};
+            formData.forEach(function (value, key) {
+                object[key] = value;
+            });
+            const json = JSON.stringify(object);
+            request.send(json);
+//===================================================
+            // для formData       
+            // request.send(formData);
+            
+            request.addEventListener('load', () => {
+                if (request.status === 200) {
+                    console.log(request.response);
+                // вызываем модальное окно с ответом
+                    showThinksModal(message.success);
+                    form.reset();
+                        statusMessege.remove();
+                } else {
+                // вызываем модальное окно с ответом
+                     showThinksModal(message.failure);
+                }
+              }); 
+        });
+
+    }
+    // оповещение пользователя
+    function showThinksModal(message) {
+        // обращаемся к модальному окну
+        const prevModalDialog = document.querySelector('.modal__dialog');
+        // скрываем  пердыдущее модальное окно   
+        prevModalDialog.classList.add('hide');
+        openModal();
+        
+      // создаём новое модальное окно
+        const thanksModal = document.createElement('div');
+        thanksModal.classList.add('modal__dialog');
+        thanksModal.innerHTML = `
+    
+            <div class="modal__content">
+                    <div data-close class="modal__close">&times;</div>
+                    <div class="modal__title">${message}</div>
+           </div>
+        `;
+     // помещаем новое модальное окно на страниу
+        document.querySelector('.modal').append(thanksModal);
+        setTimeout(() => {
+      //удаляем через 4 секунды thanksModal
+            thanksModal.remove();
+// показываем предыдущий контент
+            prevModalDialog.classList.add('show');
+            prevModalDialog.classList.remove('hide');
+            closeModal();
+        }, 4000);
+    }
+
+});   
+
+ 
 
    
 
