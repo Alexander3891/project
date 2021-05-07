@@ -1,0 +1,15 @@
+.menu__field{
+    display: flex;
+ 
+
+}
+
+.container{
+justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.menu__item{
+  margin-bottom: 40px;
+    
+}
