@@ -378,12 +378,12 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch('server.php', {
                 method: 'POST',
                 // для json файла
-                headers: {
-                    'Content-type': 'appli cation/json'
-                },
-                // body: formData // для data
-                body:JSON.stringify(object) // для json файла 
-            }).then(data =>data.text()) // ответ от сервера в виде строки
+                // headers: {
+                //     'Content-type': 'appli cation/json'
+                // },
+                body: formData / / для data
+                // body:JSON.stringify(object) // для json файла 
+            }).then(data => data.text()) // ответ от сервера в виде строки
               .then(data => {   // data - то что возвращает сервер
                 console.log(data);
                 // вызываем модальное окно с ответом
