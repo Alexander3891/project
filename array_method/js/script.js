@@ -1,43 +1,48 @@
 'use strict';
 
-const inputRub = document.querySelector('#rub'),
-      inputUsd = document.querySelector('#usd');
+//===================== filter ====================
+// возвращает новый масив
+const names = ['Ivan', 'Anna', 'Ksenia', 'Voldemart'];
 
-inputRub.addEventListener('input', () => {
-    // создам экземпляр класса запросса
-    const request = new XMLHttpRequest();
-   // собирает настройки для будующего запроса к серверу
-    request.open('GET', 'js/current.json');
-    // описываем информацию которую посылаем серверу(data-файл, json-файл)
-   request.setRequestHeader('Content-type', 'application/json', 'charset=utf-8')
-    // отправляем запрос на сервер
-    request.send();  // request.send(body) body в GET - нету в POST - есть(это данные с инпута) 
-    // отслеживает статус нашего запросав текущий момент(0-4)
-    // request.addEventListener('readystatechange', () => {
-    //     if (request.readyState === 4 && request.status === 200) {
-    //         console.log(request.response);
-    //         const data = JSON.parse(request.response);
-    //         inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
-    //     } else {
-    //         inputUsd.value = 'Что-то пошло не так';
-    //     }
-                
-    // });
-//  ===================== ИЛИ =====================
-request.addEventListener('load', () => {
-        if (request.status === 200) {
-            console.log(request.response);
-            const data = JSON.parse(request.response);
-            inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
-        } else {
-            inputUsd.value = 'Что-то пошло не так';
-        }
-                
-    });
-
-    //status - 200, 400, 500...
-   // statusText - ok, ...
-   // respons - ответ от сервера
-   //readyState - текущее состояние запроса - 0(обьект был создан),1(метод был вызван),2(метод был вызван),3(загрузка),4(операция полность юзавершина) 
- 
+const shortNames = names.filter(function (name) {
+    return name.length < 5;
 });
+ 
+console.log(shortNames);//['Ivan', 'Anna']
+
+//===================== map ====================
+// позволяет изменить каждый элемент массива
+
+const answers = ['IvAn', 'AnnA', 'Hello'];
+
+const result = answers.map(item  => {
+    return item.toLowerCase();
+});
+console.log(result);
+
+//===================== every / some ====================
+//some - если хотябы один элемент подходит то возвращает true
+// every - если все элементы подходят под условие вернёт true
+const number = [4, 'qwq', 'gfgf'];
+console.log(number.some(item => typeof (item) === 'number'));
+console.log(number.every(item => typeof(item) === 'number'));
+
+//===================== reduce ====================
+// для того чтобы схлопывать или собирать массив в одно целое
+
+const arr = [4,5,1,3,2,6];
+
+
+const res = arr.reduce((sum,current) => sum + current);
+
+
+
+
+
+
+
+
+
+
+
+
