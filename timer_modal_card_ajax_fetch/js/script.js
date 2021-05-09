@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // headers: {
                 //     'Content-type': 'appli cation/json'
                 // },
-                body: formData / / для data
+                body: formData // для data
                 // body:JSON.stringify(object) // для json файла 
             }).then(data => data.text()) // ответ от сервера в виде строки
               .then(data => {   // data - то что возвращает сервер
@@ -431,4 +431,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         });
     }
+
+    fetch('http://localhost:3000/menu')
+        .then(data => data.json())
+        .then(res => console.log(res));
+
+// для подключения json-server пишем в терминале - npx json-server --watch db.json
+   // Resources
+ // http://localhost:3000/menu
+ // http://localhost:3000/requests
 });
