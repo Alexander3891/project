@@ -1,4 +1,4 @@
- 'use strict';
+'use strict';
 
 
 //              ++++++++++++++++++++++ TABS ++++++++++++++++++++++++++
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //                     console.log(i);
 
 
-                
+
     //                 }
     //             });
     //         }
@@ -64,18 +64,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     hidenTabContent();
 
-     
-    
+
+
     function showTabContent(i = 0) {
         tabsContent[i].classList.add('show', 'fade');
         tabsContent[i].classList.remove('hide');
-   
-        
+
+
         tabs[i].classList.add('tabheader__item_active');
 
     }
     showTabContent();
-    
+
     tabsParent.addEventListener('click', (event) => {
         const target = event.target;
 
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (target == item) {
                     hidenTabContent();
                     showTabContent(i);
-                    
+
                     console.log(target);
                     console.log(item);
                     console.log(i);
@@ -94,11 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     tabs.forEach((item, i) => {
-                    
+
         console.log(item);
         console.log(i);
     });
-            
+
     //                        +++++++++++++++++++++ TIMER +++++++++++++++++++++++++
 
     const deadline = '2021-05-26 ';
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hours = Math.floor((t / (1000 * 60 * 60) % 24)), // часы 
             minutes = Math.floor((t / 1000 / 60) % 60), //минуты
             seconds = Math.floor((t / 1000) % 60); //секунды
-    
+
         return {
             'total': t,
             'days': days,
@@ -147,22 +147,22 @@ document.addEventListener('DOMContentLoaded', () => {
             hours.innerHTML = getZero(t.hours);
             minutes.innerHTML = getZero(t.minutes);
             seconds.innerHTML = getZero(t.seconds);
- 
+
             if (t.total <= 0) {
                 clearInterval(timeInterval);
             }
         }
     }
 
- 
+
     setClock('.timer', deadline);
-    
+
     //                        +++++++++++++++++++++ MODAL +++++++++++++++++++++++++
 
     const modalTrigger = document.querySelectorAll('[data-modal]'),
         modal = document.querySelector('.modal');
     //   modalCloseBtn = document.querySelector('[data-close]');
-   
+
     // функция открытия модального окна
     function openModal() {
         modal.classList.add('show');
@@ -175,13 +175,13 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(modalTimerId);
     }
 
-    
+
     //при клике каждой кнопки (Связаться с нами) открывается модальное окно
     modalTrigger.forEach(btn => {
         btn.addEventListener('click', openModal);
     });
 
-     
+
     // функция закрытия модального окна
     function closeModal() {
         modal.classList.add('hide');
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', showModalByScrol);
 
     // ================= Классы для карточек ==================
- 
+
     class MenuCart {
         constructor(src, alt, title, descr, price, parentSelector, ...classes) {
             this.src = src;
@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // const div = new MenuCart();
     // div.render();
 
-// получаем данные для каточек из db.json
+    // получаем данные для каточек из db.json
     const getResource = async (url) => {
         const res = await fetch(url);
         if (!res.ok) {
@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     getResource('http://localhost:3000/menu')
         .then(data => {
-            data.forEach(({img, altimg, title, descr, price}) => {
+            data.forEach(({ img, altimg, title, descr, price }) => {
                 new MenuCart(img, altimg, title, descr, price, '.menu__field .container').render();
             });
         });
@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //  Работаем без класса
     // getResource('http://localhost:3000/menu')
     //     .then(data => createCard(data));
-    
+
     // function createCard(data) {
     //     data.forEach(({ img, altimg, title, descr, price }) => {
     //         const element = document.createElement('div');
@@ -308,9 +308,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //         document.querySelector('.menu__field .container').append(element);
     //     });
     // }
-   
-    
-//===============  axios ===================
+
+
+    //===============  axios ===================
     // axios.get('http://localhost:3000/menu')
     //      .then(data => {
     //         data.data.forEach(({img, altimg, title, descr, price}) => {
@@ -329,11 +329,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    
+
     // ================= ajax для формы (fetch) ==================
 
     const forms = document.querySelectorAll('form');
-    
+
     const message = {
         loading: 'img/form/spinner.svg',
         success: 'Спасибо! Скоро мы с вами свяжемся',
@@ -343,22 +343,22 @@ document.addEventListener('DOMContentLoaded', () => {
     forms.forEach(item => {
         bindPostData(item);
     });
-// отправляем данные из формы на сервер
+    // отправляем данные из формы на сервер
     const postData = async (url, data) => {
         const res = await fetch(url, {
-                method: 'POST',
-                // для json файла
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: data // для json файла
+            method: 'POST',
+            // для json файла
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: data // для json файла
         });
         return await res.json();
-    };    
+    };
 
- 
-// привязка постинга
-        function bindPostData(form) {
+
+    // привязка постинга
+    function bindPostData(form) {
         form.addEventListener('submit', (event) => {
             event.preventDefault();
             // для надписи
@@ -388,28 +388,28 @@ document.addEventListener('DOMContentLoaded', () => {
             // formData.forEach(function (value, key) {
             //     object[key] = value;
             // });
-           // новый метод  вместо того что сверху(с массива в обьекс с обьекта в json)
+            // новый метод  вместо того что сверху(с массива в обьекс с обьекта в json)
             const json = JSON.stringify(Object.fromEntries(formData.entries()));
-            
-            
+
+
             // отправляем данные на json-server в db.json
             // postData('http://localhost:3000/requests',JSON.stringify(object))
-            postData('http://localhost:3000/requests',json)
-            .then(data => {   // data - то что возвращает сервер
-                console.log(data);
-                // вызываем модальное окно с ответом
-                showThinksModal(message.success);
-                statusMessege.remove();// удаляем спинер
+            postData('http://localhost:3000/requests', json)
+                .then(data => {   // data - то что возвращает сервер
+                    console.log(data);
+                    // вызываем модальное окно с ответом
+                    showThinksModal(message.success);
+                    statusMessege.remove();// удаляем спинер
 
-            }).catch(() => {
-                // вызываем модальное окно с ответом
-                showThinksModal(message.failure);
-            }).finally(() => {
-                form.reset(); // очищаем форму
-            });
-                
+                }).catch(() => {
+                    // вызываем модальное окно с ответом
+                    showThinksModal(message.failure);
+                }).finally(() => {
+                    form.reset(); // очищаем форму
+                });
+
             //===================================================
-     
+
             // оповещение пользователя
             function showThinksModal(message) {
                 // обращаемся к модальному окну
@@ -417,7 +417,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // скрываем  пердыдущее модальное окно   
                 prevModalDialog.classList.add('hide');
                 openModal();
-        
+
                 // создаём новое модальное окно
                 const thanksModal = document.createElement('div');
                 thanksModal.classList.add('modal__dialog');
@@ -447,8 +447,81 @@ document.addEventListener('DOMContentLoaded', () => {
     //     .then(data => data.json())
     //     .then(res => console.log(res));
 
-// для подключения json-server пишем в терминале - npx json-server --watch db.json
-   // Resources
- // http://localhost:3000/menu
- // http://localhost:3000/requests
+    // для подключения json-server пишем в терминале - npx json-server --watch db.json
+    // Resources
+    // http://localhost:3000/menu
+    // http://localhost:3000/requests
+
+
+    // ======================  Slide-1 ===================
+
+    const slides = document.querySelectorAll('.offer__slide'),
+        prev = document.querySelector('.offer__slider-prev'),
+        next = document.querySelector('.offer__slider-next'),
+        total = document.querySelector('#total'),
+        current = document.querySelector('#current');
+
+
+    let slideIndex = 1;
+
+    showSlides(slideIndex);
+    if (slides.length < 10) {
+        total.textContent = `0${slides.length}`;
+    } else {
+        total.textContent = slides.length;
+    }
+
+
+
+    function showSlides(n) {
+        if (n > slides.length) {
+            slideIndex = 1;
+        }
+
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+
+        slides.forEach(item => item.style.display = 'none');
+        slides[slideIndex - 1].style.display = 'block';
+
+        if (slides.length < 10) {
+            current.textContent = `0${slideIndex}`;
+        } else {
+            current.textContent = slideIndex;
+        }
+
+
+    }
+
+    function plussSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    prev.addEventListener('click', () => {
+        plussSlides(-1);
+    });
+    next.addEventListener('click', () => {
+        plussSlides(1);
+    });
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
