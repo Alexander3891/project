@@ -580,7 +580,7 @@ document.addEventListener('DOMContentLoaded', () => {
     opacity: .5;
     transition: opacity .6s ease;
         `;
-// ========= активность точек ===============
+// ========= active dots ===============
         if (i == 0) {
             dot.style.opacity = 1;
         }
