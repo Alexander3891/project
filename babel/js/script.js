@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
+            // ===== webpack ===== 
 // node -v
 // npm -v
 // npm init
@@ -39,7 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // npm install webpack webpack-cli --save-dev
 // npx webpack    
 
-
+          //======== json-server ======
+    
 // fetch('http://localhost:3000/menu')
     //     .then(data => data.json())
     //     .then(res => console.log(res));
@@ -48,6 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Resources
     // http://localhost:3000/menu
     // http://localhost:3000/requests
+
+          //======== babel ======
+//npm install --save-dev @babel/core @babel/cli @babel/preset-env
+// npm install --save @babel/polyfill
+// npm i --save-dev babel-loader 
+// npm i --save-dev core-js 
 });
 
 
