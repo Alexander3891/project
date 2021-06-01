@@ -41,11 +41,10 @@
 
 //======== Animation ==============
 // const btnn = document.querySelector('.btnn');
+// const elem = document.querySelector('.box');
+// let pos = 0;
    
 // function myAnimation() {
-//     const elem = document.querySelector('.box');
-//     let pos = 0;
-
 //     const id = setInterval(frame, 10);
 
 //     function frame() {
@@ -60,39 +59,62 @@
 // }
 // btnn.addEventListener('click', myAnimation);
 
+//======== Animation 2  ==============
 
 const btnn = document.querySelector('.btnn');
+const elem = document.querySelector('.box');
+let pos = 0;
    
 function myAnimation() {
-    const elem = document.querySelector('.box');
-    let pos = 0;
+    pos++;
+    elem.style.top = pos + 'px';
+    elem.style.left = pos + 'px';
 
-    const id = setInterval(frame, 10);
+    if (pos < 300) {
+       requestAnimationFrame(myAnimation);
+   }
 
-    function frame() {
-        if (pos == 200) {
-            clearInterval(id);
-        } else {
-            pos++;
-            elem.style.left = pos + 'px';
-        }
-    }
 }
-// btnn.addEventListener('click', myAnimation);
-btnn.addEventListener('click', () => {
-     p = setInterval(l, 2000);
-});       
+btnn.addEventListener('click', () => requestAnimationFrame(myAnimation));
+// остановка анимации
+    let id = requestAnimationFrame(myAnimation);
+    cancelAnimationFrame(id);
+ 
 
-let i = 0;
-let p;
-function l() {
-    if (i == 3) {
-        clearInterval(p);// stop timer
-    } else {
-        myAnimation();
-        i++;
-    }
-}
+
+//================================================
+// const btnn = document.querySelector('.btnn');
+   
+// function myAnimation() {
+//     const elem = document.querySelector('.box');
+//     let pos = 0;
+
+//     const id = setInterval(frame, 10);
+
+//     function frame() {
+//         if (pos == 200) {
+//             clearInterval(id);
+//         } else {
+//             pos++;
+//             elem.style.left = pos + 'px';
+//         }
+//     }
+// }
+// // btnn.addEventListener('click', myAnimation);
+// btnn.addEventListener('click', () => {
+//      p = setInterval(l, 2000);
+// });       
+
+// let i = 0;
+// let p;
+// function l() {
+//     if (i == 3) {
+//         clearInterval(p);// stop timer
+//     } else {
+//         myAnimation();
+//         i++;
+//     }
+// }
 
 
 
