@@ -13,11 +13,12 @@
 // 10. git log (выводит все commit)
 //============== gitHub =====================================
 // 1. создаём репозиторий не gitHub (project)
-// 2. git remote add origin https://github.com/Alexander3891/project.git
-// 3. git push -u origin main (master)
-//  git push --set-upstream origin master - эта работает
+// выполняем три вставки
+// 2.1. git remote add origin https://github.com/Alexander3891/project.git
+// 2.2  git branch -M main
+// 2.3. git push -u origin main
+// (2.3 git push --set-upstream origin master - эта работает)
 // 4. теперть в репозитории появяться все файла с VS code
-// 5. git push (после очередного изменения и комита отправляем обновлённые файлы на удалённый репозиторий)
 // 5. git push (после очередного изменения и комита отправляем обновлённые файлы на удалённый репозиторий)
 
 //============== Github - работа с разных компьютеров ==================
@@ -28,8 +29,34 @@
 // 4. git clone https://github.com/Alexander3891/project.git progect_2
 // at home
 //  git pull (получаем все обновления с репозитория)
+
 //====================== gitignore ================
 // файлы которые не хотим push
+
+// ===== webpack ===== 
+// node -v
+// npm -v
+// npm init
+// webpack.config.js
+// npm install webpack webpack-cli --save-dev
+// npx webpack    
+
+          //======== json-server ======
+    
+// fetch('http://localhost:3000/menu')
+    //     .then(data => data.json())
+    //     .then(res => console.log(res));
+
+    // для подключения json-server пишем в терминале - npx json-server --watch db.json
+    // Resources
+    // http://localhost:3000/menu
+    // http://localhost:3000/requests
+
+          //======== babel ======
+//npm install --save-dev @babel/core @babel/cli @babel/preset-env
+// npm install --save @babel/polyfill
+// npm i --save-dev babel-loader    
+// npm i --save-dev core-js 
 
 
 
